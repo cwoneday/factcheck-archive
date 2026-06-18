@@ -1,0 +1,9 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+
+# NOTE: _workspace/ 는 투명성을 위해 의도적으로 추적한다 (SPEC §10에서 변경 가능)
