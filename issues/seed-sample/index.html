@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2023년 한국 합계출산율 0.72명 — 팩트체크 아카이브</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<script id="issue-data" type="application/json">{"slug": "seed-sample", "title": "2023년 한국 합계출산율 0.72명", "summary": "통계청이 발표한 2023년 합계출산율(잠정)을 둘러싼 주장들을 검증한다. (스키마 검증용 시드 샘플)", "category": "사회", "date_occurred": "2024-02-28", "date_updated": "2026-06-18", "claims": [{"text": "2023년 합계출산율(잠정)은 0.72명으로, 1970년 통계 작성 이후 역대 최저를 경신했다.", "verdict": "사실", "evidence": "통계청 '2023년 출생·사망통계 잠정 결과'(2024-02-28)에서 2023년 합계출산율 0.72명, 2022년 0.78명 대비 0.06명 감소로 발표. 출생아 수·합계출산율·조출생률 모두 1970년 이후 최저.", "sources": [{"title": "대한민국 정책브리핑 — 2023년 출생·사망통계(잠정)", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=156617654"}]}, {"text": "2023년 전국 17개 시·도 가운데 합계출산율이 1.0명을 넘는 곳은 한 곳도 없었다.", "verdict": "사실", "evidence": "시도별 합계출산율은 세종·전남 0.97명이 최고, 서울 0.55명이 최저로, 모든 시도가 1.0명 미만으로 집계됨.", "sources": [{"title": "메디게이트뉴스 — 2023년 잠정 합계출산율 0.72명", "url": "https://medigatenews.com/news/3044206017"}]}, {"text": "혼인 건수 회복이 2024년 이후 출산율 반등으로 이어질 것이라는 전망은, 2024년 2월 발표 시점에 확정적이었다.", "verdict": "논쟁", "evidence": "통계청 인구동향과장은 브리핑에서 혼인 회복이 출산으로 이어질지는 여러 요인에 따라 '달라질 수 있다'고 답해, 반등을 단정하지 않았다. 따라서 '확정적'이라는 주장은 근거가 약하다.", "sources": [{"title": "대한민국 정책브리핑 — 부처 브리핑 전문", "url": "https://www.korea.kr/briefing/policyBriefingView.do?newsId=156617654"}]}], "timeline": [{"date": "2024-02-28", "event": "통계청, 2023년 출생·사망통계 잠정 결과 발표 (합계출산율 0.72명)"}, {"date": "2024-08", "event": "출생통계 확정치 공표 예정으로 안내됨"}], "opinion": {"note": "발표 직후 언론·전문가 반응의 대표 인용. 여론 지형은 맥락으로만 제시하며 사실 판정과 분리한다.", "quotes": [{"text": "OECD 회원국 중 합계출산율이 1명 미만인 국가는 한국이 유일하다.", "source": "데일리연합", "url": "https://dailyan.com/mobile/article.html?no=685842"}, {"text": "단 두 세대 만에 공동체가 소멸하는 수준으로 인구가 줄어든다는 점을 숫자 하나가 압축해 보여준다.", "source": "시사IN", "url": "https://www.sisain.co.kr/news/articleView.html?idxno=52443"}]}, "sources": [{"title": "대한민국 정책브리핑 — 2023년 출생·사망통계(잠정)", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=156617654"}, {"title": "메디게이트뉴스 — 2023년 잠정 합계출산율 0.72명", "url": "https://medigatenews.com/news/3044206017"}, {"title": "시사IN — 0.72명이라는 성적표", "url": "https://www.sisain.co.kr/news/articleView.html?idxno=52443"}, {"title": "데일리연합 — 출산율 0.72명, 인구 절벽 가속", "url": "https://dailyan.com/mobile/article.html?no=685842"}], "method": "이 항목은 데이터 계약(스키마) 검증용 시드 샘플이다. 사실 판정은 통계청 발표와 이를 보도한 공개 출처에 한정해 수행했으며, 추가 학술·해외 출처 및 커뮤니티 반응은 수집 범위에 포함하지 않았다. 봇 차단 등으로 수집하지 못한 소스는 없다(검색 기반 공개 자료만 사용)."}</script>
+<main class="wrap" id="root"></main>
+<footer class="wrap">출처 추적성 · 날조 0 · 정직한 한계 · 중립</footer>
+<script>
+(function () {
+  var ISSUE = JSON.parse(document.getElementById("issue-data").textContent);
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function srcLinks(arr){ return (arr||[]).map(function(s){
+    return '<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.title||s.url)+'</a>'; }).join(""); }
+
+  var h = [];
+  // 헤더
+  h.push('<header class="issue-header">');
+  h.push('<a class="back" href="../../index.html">← 전체 이슈</a>');
+  h.push('<h1>'+esc(ISSUE.title)+'</h1>');
+  h.push('<p class="summary">'+esc(ISSUE.summary)+'</p>');
+  h.push('<div class="meta">발생 '+esc(ISSUE.date_occurred)+' · 갱신 '+esc(ISSUE.date_updated)
+    +' · 분류 '+esc(ISSUE.category||"-")+'</div>');
+  h.push('</header>');
+
+  // ① 핵심 팩트체크 (메인)
+  h.push('<section class="block"><h2><span class="n">01</span> 핵심 팩트체크</h2>');
+  (ISSUE.claims||[]).forEach(function(c){
+    h.push('<div class="claim"><div class="claim-head">'
+      +'<p class="claim-text">'+esc(c.text)+'</p>'
+      +'<span class="verdict" data-v="'+esc(c.verdict)+'">'+esc(c.verdict)+'</span></div>'
+      +(c.evidence?'<p class="evidence">'+esc(c.evidence)+'</p>':'')
+      +'<div class="claim-src">출처 '+srcLinks(c.sources)+'</div></div>');
+  });
+  h.push('</section>');
+
+  // ② 타임라인
+  if (ISSUE.timeline && ISSUE.timeline.length){
+    h.push('<section class="block"><h2><span class="n">02</span> 타임라인</h2><ul class="timeline">');
+    ISSUE.timeline.forEach(function(t){
+      h.push('<li><span class="t-date">'+esc(t.date)+'</span><span>'+esc(t.event)+'</span></li>'); });
+    h.push('</ul></section>');
+  }
+
+  // ③ 여론 지형 (맥락)
+  if (ISSUE.opinion && ISSUE.opinion.quotes && ISSUE.opinion.quotes.length){
+    h.push('<section class="block opinion"><h2><span class="n">03</span> 여론 지형 <small style="text-transform:none;letter-spacing:0">(맥락)</small></h2>');
+    if (ISSUE.opinion.note) h.push('<p class="note">'+esc(ISSUE.opinion.note)+'</p>');
+    ISSUE.opinion.quotes.forEach(function(qt){
+      h.push('<blockquote class="quote"><p>“'+esc(qt.text)+'”</p>'
+        +'<span class="cite">— <a href="'+esc(qt.url)+'" target="_blank" rel="noopener">'+esc(qt.source)+'</a></span></blockquote>'); });
+    h.push('</section>');
+  }
+
+  // ④ 전체 출처
+  if (ISSUE.sources && ISSUE.sources.length){
+    h.push('<section class="block"><h2><span class="n">04</span> 전체 출처</h2><ul class="sources">');
+    ISSUE.sources.forEach(function(s,i){
+      h.push('<li><span class="src-num">['+(i+1)+']</span><a href="'+esc(s.url)
+        +'" target="_blank" rel="noopener">'+esc(s.title||s.url)+'</a></li>'); });
+    h.push('</ul></section>');
+  }
+
+  // ⑤ 메서드 · 한계
+  if (ISSUE.method){
+    h.push('<section class="block"><h2><span class="n">05</span> 메서드 · 한계</h2>'
+      +'<p class="method">'+esc(ISSUE.method)+'</p></section>');
+  }
+
+  document.getElementById("root").innerHTML = h.join("");
+  document.title = ISSUE.title + " — 팩트체크 아카이브";
+})();
+</script>
+</body>
+</html>

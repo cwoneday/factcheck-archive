@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사회 이슈 팩트체크 아카이브</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hub-header">
+  <div class="wrap">
+    <div class="eyebrow">FACT-CHECK ARCHIVE · 검증된 사실 우선</div>
+    <h1>사회 이슈, 사실부터 확인합니다</h1>
+    <p class="lede">사회 이슈를 다중 출처로 수집·교차검증해 정적 페이지로 박제하고, 키워드와 날짜로 검색합니다. 여론은 맥락으로만 곁들입니다.</p>
+    <div class="spectrum" aria-hidden="true">
+      <span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span>
+    </div>
+    <div class="spectrum-labels"><span>사실</span><span>대체로 사실</span><span>논쟁</span><span>대체로 거짓</span><span>거짓</span></div>
+  </div>
+</header>
+
+<div class="search-bar">
+  <div class="wrap">
+    <input id="q" type="search" placeholder="이슈·주장·인용 검색…" autocomplete="off" aria-label="이슈 검색">
+    <div class="sort-toggle" role="group" aria-label="정렬">
+      <button id="sort-updated" aria-pressed="true">최신순</button>
+      <button id="sort-occurred" aria-pressed="false">발생순</button>
+    </div>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer class="wrap">출처 추적성 · 날조 0 · 정직한 한계 · 중립 · 데이터 밖 단정 금지</footer>
+
+<script src="index-data.js"></script>
+<script src="search.js"></script>
+</body>
+</html>

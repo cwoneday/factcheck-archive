@@ -1,0 +1,180 @@
+/* ───────────────────────────────────────────────────────────
+   사회 이슈 팩트체크 아카이브 — 공유 스타일
+   시그니처: 5단계 판정 스펙트럼 + 모노스페이스 기록 메타데이터
+   외부 의존 0. 차가운 오프화이트 + 절제된 인디고 + 판정 색이 표현을 담당.
+   ─────────────────────────────────────────────────────────── */
+
+:root {
+  --bg: #EEF1F6;
+  --surface: #FFFFFF;
+  --ink: #191D26;
+  --ink-soft: #5B6472;
+  --line: #DCE1EA;
+  --accent: #26346B;
+
+  /* 판정 5단계 — 시그니처 스펙트럼 */
+  --v-true: #137A47;
+  --v-mostly-true: #3F8F5E;
+  --v-disputed: #B7860B;
+  --v-mostly-false: #CF6A2B;
+  --v-false: #B5392C;
+
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+    "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas,
+    "D2Coding", monospace;
+
+  --maxw: 880px;
+  --radius: 4px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+/* 모노 메타데이터 — 법정 기록 질감 */
+.eyebrow, .meta, .verdict, .sort-toggle, .count, .src-num {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+}
+.eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  letter-spacing: .14em;
+}
+
+/* ── 판정 스펙트럼 레전드 (시그니처) ── */
+.spectrum { display: flex; gap: 2px; margin: 14px 0 0; }
+.spectrum span {
+  flex: 1; height: 6px; border-radius: 2px;
+}
+.spectrum .s1 { background: var(--v-true); }
+.spectrum .s2 { background: var(--v-mostly-true); }
+.spectrum .s3 { background: var(--v-disputed); }
+.spectrum .s4 { background: var(--v-mostly-false); }
+.spectrum .s5 { background: var(--v-false); }
+.spectrum-labels {
+  display: flex; justify-content: space-between;
+  font-family: var(--mono); font-size: 10.5px; color: var(--ink-soft);
+  margin-top: 5px;
+}
+
+/* ── 판정 배지 ── */
+.verdict {
+  display: inline-block; font-size: 12px; font-weight: 600;
+  color: #fff; padding: 2px 9px; border-radius: 999px; white-space: nowrap;
+}
+.verdict[data-v="사실"] { background: var(--v-true); }
+.verdict[data-v="대체로 사실"] { background: var(--v-mostly-true); }
+.verdict[data-v="논쟁"] { background: var(--v-disputed); }
+.verdict[data-v="대체로 거짓"] { background: var(--v-mostly-false); }
+.verdict[data-v="거짓"] { background: var(--v-false); }
+
+/* ───────── 허브 ───────── */
+.hub-header { padding: 56px 0 28px; }
+.hub-header h1 {
+  font-size: clamp(28px, 5vw, 40px); line-height: 1.15;
+  margin: 8px 0 6px; letter-spacing: -0.01em;
+}
+.hub-header .lede { color: var(--ink-soft); margin: 0; max-width: 60ch; }
+
+.search-bar { position: sticky; top: 0; z-index: 5;
+  background: var(--bg); padding: 18px 0; border-bottom: 1px solid var(--line); }
+.search-bar .wrap { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+#q {
+  flex: 1 1 260px; min-width: 0;
+  font: 16px var(--sans); color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 11px 14px;
+}
+#q:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.sort-toggle {
+  display: inline-flex; border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden; background: var(--surface);
+}
+.sort-toggle button {
+  font: 12px var(--mono); color: var(--ink-soft);
+  background: transparent; border: 0; padding: 9px 12px; cursor: pointer;
+}
+.sort-toggle button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.count { color: var(--ink-soft); font-size: 12px; }
+
+.grid { display: grid; gap: 14px; padding: 24px 0 64px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
+.card {
+  display: block; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px; color: inherit; transition: border-color .12s, transform .12s;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+.card .meta { font-size: 11.5px; color: var(--ink-soft); margin-bottom: 8px; }
+.card h2 { font-size: 18px; margin: 0 0 6px; line-height: 1.3; }
+.card p { margin: 0 0 12px; color: var(--ink-soft); font-size: 14px; }
+.card .card-spectrum { display: flex; gap: 3px; margin-top: 10px; }
+.card .card-spectrum i {
+  width: 18px; height: 5px; border-radius: 2px; display: inline-block;
+}
+.empty { color: var(--ink-soft); padding: 48px 0; text-align: center; }
+
+/* ───────── 이슈 페이지 ───────── */
+.issue-header { padding: 48px 0 24px; border-bottom: 1px solid var(--line); }
+.issue-header .back { font: 12px var(--mono); color: var(--ink-soft); }
+.issue-header h1 { font-size: clamp(24px, 4.5vw, 34px); margin: 10px 0 8px; line-height: 1.2; }
+.issue-header .summary { color: var(--ink-soft); margin: 0; max-width: 62ch; }
+.issue-header .meta { font-size: 12px; color: var(--ink-soft); margin-top: 14px; }
+
+section.block { padding: 32px 0; border-bottom: 1px solid var(--line); }
+section.block > h2 {
+  font-size: 13px; font-family: var(--mono); text-transform: uppercase;
+  letter-spacing: .12em; color: var(--ink-soft); margin: 0 0 18px;
+}
+section.block > h2 .n { color: var(--accent); }
+
+/* 팩트체크 (메인) */
+.claim { background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
+.claim .claim-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.claim .claim-text { font-size: 17px; font-weight: 600; margin: 0; flex: 1; line-height: 1.4; }
+.claim .evidence { color: var(--ink-soft); font-size: 14.5px; margin: 12px 0 0; }
+.claim .claim-src { font-family: var(--mono); font-size: 12px; margin-top: 10px; }
+.claim .claim-src a { margin-right: 12px; }
+
+/* 타임라인 */
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { display: flex; gap: 16px; padding: 8px 0; }
+.timeline .t-date { font-family: var(--mono); font-size: 12.5px; color: var(--accent); min-width: 92px; }
+
+/* 여론 */
+.opinion .note { color: var(--ink-soft); font-size: 13.5px; margin: 0 0 14px; }
+.quote { border-left: 3px solid var(--line); padding: 4px 0 4px 14px; margin: 0 0 14px; }
+.quote p { margin: 0 0 4px; }
+.quote .cite { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); }
+
+/* 출처 + 메서드 */
+.sources { list-style: none; margin: 0; padding: 0; }
+.sources li { padding: 5px 0; font-size: 14.5px; }
+.sources .src-num { color: var(--ink-soft); margin-right: 8px; }
+.method { color: var(--ink-soft); font-size: 14px; }
+
+footer { padding: 40px 0 64px; color: var(--ink-soft); font: 12px var(--mono); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

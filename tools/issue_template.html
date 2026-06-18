@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__ — 팩트체크 아카이브</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<script id="issue-data" type="application/json">__ISSUE_DATA__</script>
+<main class="wrap" id="root"></main>
+<footer class="wrap">출처 추적성 · 날조 0 · 정직한 한계 · 중립</footer>
+<script>
+(function () {
+  var ISSUE = JSON.parse(document.getElementById("issue-data").textContent);
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function srcLinks(arr){ return (arr||[]).map(function(s){
+    return '<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.title||s.url)+'</a>'; }).join(""); }
+
+  var h = [];
+  // 헤더
+  h.push('<header class="issue-header">');
+  h.push('<a class="back" href="../../index.html">← 전체 이슈</a>');
+  h.push('<h1>'+esc(ISSUE.title)+'</h1>');
+  h.push('<p class="summary">'+esc(ISSUE.summary)+'</p>');
+  h.push('<div class="meta">발생 '+esc(ISSUE.date_occurred)+' · 갱신 '+esc(ISSUE.date_updated)
+    +' · 분류 '+esc(ISSUE.category||"-")+'</div>');
+  h.push('</header>');
+
+  // ① 핵심 팩트체크 (메인)
+  h.push('<section class="block"><h2><span class="n">01</span> 핵심 팩트체크</h2>');
+  (ISSUE.claims||[]).forEach(function(c){
+    h.push('<div class="claim"><div class="claim-head">'
+      +'<p class="claim-text">'+esc(c.text)+'</p>'
+      +'<span class="verdict" data-v="'+esc(c.verdict)+'">'+esc(c.verdict)+'</span></div>'
+      +(c.evidence?'<p class="evidence">'+esc(c.evidence)+'</p>':'')
+      +'<div class="claim-src">출처 '+srcLinks(c.sources)+'</div></div>');
+  });
+  h.push('</section>');
+
+  // ② 타임라인
+  if (ISSUE.timeline && ISSUE.timeline.length){
+    h.push('<section class="block"><h2><span class="n">02</span> 타임라인</h2><ul class="timeline">');
+    ISSUE.timeline.forEach(function(t){
+      h.push('<li><span class="t-date">'+esc(t.date)+'</span><span>'+esc(t.event)+'</span></li>'); });
+    h.push('</ul></section>');
+  }
+
+  // ③ 여론 지형 (맥락)
+  if (ISSUE.opinion && ISSUE.opinion.quotes && ISSUE.opinion.quotes.length){
+    h.push('<section class="block opinion"><h2><span class="n">03</span> 여론 지형 <small style="text-transform:none;letter-spacing:0">(맥락)</small></h2>');
+    if (ISSUE.opinion.note) h.push('<p class="note">'+esc(ISSUE.opinion.note)+'</p>');
+    ISSUE.opinion.quotes.forEach(function(qt){
+      h.push('<blockquote class="quote"><p>“'+esc(qt.text)+'”</p>'
+        +'<span class="cite">— <a href="'+esc(qt.url)+'" target="_blank" rel="noopener">'+esc(qt.source)+'</a></span></blockquote>'); });
+    h.push('</section>');
+  }
+
+  // ④ 전체 출처
+  if (ISSUE.sources && ISSUE.sources.length){
+    h.push('<section class="block"><h2><span class="n">04</span> 전체 출처</h2><ul class="sources">');
+    ISSUE.sources.forEach(function(s,i){
+      h.push('<li><span class="src-num">['+(i+1)+']</span><a href="'+esc(s.url)
+        +'" target="_blank" rel="noopener">'+esc(s.title||s.url)+'</a></li>'); });
+    h.push('</ul></section>');
+  }
+
+  // ⑤ 메서드 · 한계
+  if (ISSUE.method){
+    h.push('<section class="block"><h2><span class="n">05</span> 메서드 · 한계</h2>'
+      +'<p class="method">'+esc(ISSUE.method)+'</p></section>');
+  }
+
+  document.getElementById("root").innerHTML = h.join("");
+  document.title = ISSUE.title + " — 팩트체크 아카이브";
+})();
+</script>
+</body>
+</html>
